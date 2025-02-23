@@ -1,12 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>E.Full Power - Soluciones Electrónicas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #007bff;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: rgba(0, 123, 255, 0.9);
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
+            color: #ffffff;
+            padding: 150px 20px;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background-color: #f8f9fa;
+            padding: 50px 20px;
+        }
+        .service-box {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+        .service-box:hover {
+            transform: scale(1.05);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <H1>Hola mundo como estan</H1>
+    <header>
+        <div class="logo">E.Full Power</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
     
+    <section id="inicio" class="hero fade-in">
+        <h1>Bienvenidos a E.Full Power</h1>
+        <p>Soluciones electrónicas y telecomunicaciones de alta calidad.</p>
+    </section>
+
+    <section id="nosotros" class="fade-in">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos una empresa especializada en proyectos electrónicos y telecomunicaciones.</p>
+    </section>
+
+    <section id="servicios" class="services fade-in">
+        <div class="service-box">
+            <h3>Instalaciones eléctricas</h3>
+            <p>Realizamos instalaciones eléctricas con calidad y seguridad garantizada.</p>
+        </div>
+        <div class="service-box">
+            <h3>Telecomunicaciones</h3>
+            <p>Proyectos avanzados en telecomunicaciones para empresas y hogares.</p>
+        </div>
+        <div class="service-box">
+            <h3>Mantenimiento de equipos</h3>
+            <p>Garantizamos el mantenimiento y reparación de equipos electrónicos.</p>
+        </div>
+    </section>
+
+    <section id="contacto" class="fade-in">
+        <h2>Contacto</h2>
+        <p>Correo: contacto@efullpower.com</p>
+        <p>Teléfono: +51 999 999 999</p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
